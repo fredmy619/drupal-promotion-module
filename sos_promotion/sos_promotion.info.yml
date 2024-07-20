@@ -1,0 +1,10 @@
+name: 'SOS Promotion'
+type: module
+description: 'A module to manage promotions.'
+core_version_requirement: ^10
+core: 10.x
+package: Custom
+dependencies:
+  - drupal:field
+  - drupal:datetime
+  - drupal:config

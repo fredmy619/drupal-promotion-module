@@ -1,0 +1,55 @@
+##
+# ADMIN SOS - PROMOTION CONFIG
+##
+sos_promotion.configuration:
+  path: '/admin/config/sos-promotion-config'
+  defaults:
+    _form: '\Drupal\sos_promotion\Form\ConfigForm'
+    _title: 'SOS Promotion - Settings'
+  requirements:
+    _permission: 'access administration pages'
+
+##
+# ADMIN SOS - PROMOTION MAIN
+##
+sos_promotion.main:
+  path: '/admin/config/sos-promotion'
+  defaults:
+    _controller: '\Drupal\sos_promotion\Controller\MainController::content'
+    _title: 'SOS Promotions'
+  requirements:
+    _permission: 'access administration pages'
+
+##
+# ADMIN SOS - ADD PROMOTION
+##
+sos_promotion.add_form:
+  path: '/admin/config/sos-promotion/add'
+  defaults:
+    _form: '\Drupal\sos_promotion\Form\AddPromotionForm'
+    _title: 'Add Promotion'
+  requirements:
+    _permission: 'access administration pages'
+
+##
+# ADMIN SOS - MANAGE PROMOTIONS
+##
+sos_promotion.manage_form:
+  path: '/admin/config/sos-promotion/manage'
+  defaults:
+    _form: '\Drupal\sos_promotion\Form\ManagePromotionForm'
+    _title: 'Manage Promotions'
+  requirements:
+    _permission: 'access administration pages'
+
+##
+# GET PROMOTION API
+##
+sos_promotion.getPromotions:
+  path: '/api/promotions'
+  defaults:
+    _controller: '\Drupal\sos_promotion\Controller\DataBaseController::getPromotions'
+  requirements:
+    _permission: 'access content'
+    _format: 'string'
+    _method: 'GET'

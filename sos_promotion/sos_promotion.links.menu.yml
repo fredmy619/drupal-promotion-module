@@ -1,0 +1,20 @@
+system.admin_config_sospromotion:
+  title: 'NexGard Plus Spot Promotion'
+  route_name: system.admin_config
+  parent: system.admin_config
+  description: 'Promotion Settings'
+  weight: -10
+
+sos_promotion.configuration:
+  title: 'Settings'
+  description: 'Promotion settings'
+  route_name: sos_promotion.configuration
+  parent: system.admin_config_sospromotion
+  weight: 104
+
+sos_promotion.main:
+  title: 'Promotions'
+  description: 'Main promotion page'
+  route_name: sos_promotion.main
+  parent: system.admin_config_sospromotion
+  weight: 105

@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function sos_promotion_schema() {
+  $schema['sos_promotions'] = [
+    'description' => 'Stores promotions.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique promotion ID.',
+      ],
+      'title' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Promotion title.',
+      ],
+      'product_list' => [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+        'description' => "Lists of product id's eligible for promotion.",
+      ],
+      'user_list' => [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+        'description' => "Lists of user's eligible for promotion.",
+      ],
+      'message' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'description' => 'Promotion message.',
+      ],
+      'discount' => [
+        'type' => 'float',
+        'not null' => TRUE,
+        'default' => 0.0,
+        'description' => 'Discount (as a number).',
+      ],
+      'start_date' => [
+        'type' => 'date',
+        'mysql_type' => 'date',
+        'not null' => TRUE,
+        'description' => 'Start Date.',
+      ],
+      'expiry_date' => [
+        'type' => 'date',
+        'mysql_type' => 'date',
+        'not null' => TRUE,
+        'description' => 'Expiry Date.',
+      ],
+      'created' => [
+         'type' => 'datetime',
+         'mysql_type' => 'datetime',
+         'not null' => TRUE,
+      ],
+      'last_updated' => [
+         'type' => 'datetime',
+         'mysql_type' => 'datetime',
+         'not null' => FALSE,
+      ],
+      'product_fid' => [
+         'type' => 'int',
+         'unsigned' => TRUE,
+         'not null' => TRUE,
+         'description' => 'Uploaded product file id',
+      ],
+      'user_fid' => [
+         'type' => 'int',
+         'unsigned' => TRUE,
+         'not null' => TRUE,
+         'description' => 'Uploaded user file id',
+      ],
+      'flyer_fid' => [
+         'type' => 'int',
+         'unsigned' => TRUE,
+         'not null' => FALSE,
+         'description' => 'Uploaded flyer file id',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

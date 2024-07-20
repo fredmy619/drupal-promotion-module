@@ -1,0 +1,9 @@
+<?php
+/**
+ * Implements hook_form_alter() to add the confirm delete JS.
+ */
+function sos_promotion_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    // Add the JS file for confirmation dialog.
+    $form['#attached']['library'][] = 'sos_promotion/confirm_delete';
+}
+
